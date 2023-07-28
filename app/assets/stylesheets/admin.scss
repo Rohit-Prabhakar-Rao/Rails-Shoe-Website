@@ -1,3 +1,17 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// including variables and mixins
+@import "variables";
+@import "mixins";
+@import "predefine";
+@import "reset";
+
+
+// Custom Scss 
+@import "elements";
+@import "header";
+@import "banner";
+@import "home";
+@import "common";
+@import "product";
+@import "blog";
+@import "contact";
+@import "footer";

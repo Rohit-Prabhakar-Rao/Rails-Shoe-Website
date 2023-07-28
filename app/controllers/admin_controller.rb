@@ -1,18 +1,38 @@
 class AdminController < ApplicationController
+  # before_action :authenticate_admin, except: [:login]
+
   def login
-    if request.post?
-     if params[:username] == "admin" && params[:password]=="nimda"
-        session[:admin] = "admin"
-        redirect_to stores_path
-     else
-      #  flash[:notice] = "Invalid username/password"
-       render :action => "login" 
-     end
+    username = params[:username]
+    password = params[:password]
+
+    if valid_credentials?(username, password)
+      session[:admin_logged_in] = true
+      redirect_to stores_path, notice: "Login successful. Welcome, #{username}!"
+    else
+      render :login
+    end
+    flash[:alert] = "Invalid credentials. Please try again."
+  end
+
+  def logout
+    if session[:admin_logged_in]
+      session[:admin_logged_in] = false
+      flash[:alert] = "Logged out..." 
+      redirect_to '/admin/login'
+    else
+      redirect_to '/admin/login', alert: "You are not logged in."
     end
   end
-    def logout
-      session[:admin] = nil
-      flash[:notice] = "You are logged out"
-      redirect_to :action=>:login
-    end
+
+  def destroy
+    session[:admin_logged_in] = nil
+    redirect_to root_path, notice: 'Admin logged out successfully!'
+  end
+
+  private
+
+  def valid_credentials?(username, password)
+    username == "Rohit" && password == "password"
+  end
+
 end

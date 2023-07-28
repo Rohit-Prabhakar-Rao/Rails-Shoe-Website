@@ -1,6 +1,26 @@
-<%= flash[:notice] %>
+
+<section class="banner-area">
+		<div class="container">
+			<div class="row fullscreen align-items-center justify-content-start">
+				<div class="col-lg-12">
+					<div class="active-banner-slider owl-carousel">
+						<!-- single-slide -->
+						<div class="row single-slide align-items-center d-flex">
+							<div class="col-lg-5 col-md-6">
+								<div class="banner-content">
+                 <div class="adminlogin">
+    <div class="adminlogin-content">
+      <%# <%= flash[:notice] %> 
+      
+
+<% if session[:admin] %>
+    <a href="/admin/logout"> Admin Logout</a> 
+  <% else %>
+      <a href="/admin/login"> Admin Login</a> 
+  <% end %>
 
 <h1>Admin Login</h1>
+<%= flash[:notice] %> 
 <%= form_with url: "/admin/login", method: :post do |form| %>
 <div class="field">
     <%= form.label :username %>
@@ -13,5 +33,21 @@
   <div class="actions">
     <%= form.submit "Admin Login" %>
   </div>
-  
+  </div>
+  </div>
 <% end %>
+								</div>
+							</div>
+							<div class="col-lg-7">
+								<div class="banner-img">
+									<img class="img-fluid" src="/assets/banner/banner-img.png" alt="">
+								</div>
+							</div>
+						</div>
+						<!-- single-slide -->
+						
+
+
+
+
+

@@ -1,0 +1,82 @@
+/* Styles for the stores form container */
+/* Styles for the stores form container */
+/* Styles for the stores form container */
+.stores-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  
+    /* Center the form container using flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust this value to center the container properly */
+  
+    /* Increase font size */
+    font-size: 18px; /* You can adjust this value as needed */
+    
+    /* Left-align text contents */
+    text-align: left;
+  }
+  
+  /* Rest of the CSS remains the same */
+  /* ... */
+  
+  
+  /* Rest of the CSS remains the same */
+  /* ... */
+  
+  
+  /* Style for the notice message */
+  #notice {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the image div */
+  .image-container {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-height: 100px;
+    max-width: 100px;
+  }
+  
+  /* Style the data divs */
+  .data-container {
+    margin-bottom: 10px;
+  }
+  
+  .data-container strong {
+    font-weight: bold;
+  }
+  
+  /* Style the links div */
+  .links-container {
+    margin-top: 20px;
+  }
+  
+  .links-container a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    background-color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .links-container a:hover {
+    background-color: #0056b3;
+  }
+  

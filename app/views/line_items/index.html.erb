@@ -1,0 +1,117 @@
+
+
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Shopping Cart</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="category.html">Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @line_items.each do |line_item| %>
+                            <% shoe = line_item.store %>
+                            <tr data-line-item-id="<%= line_item.id %>">
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <%= image_tag shoe.store_image, height: "150", width: "150" if shoe.store_image.attached? %><br />
+                                        </div>
+                                        <div class="media-body">
+                                            <p><%= shoe.name %></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5><%= shoe.price %></h5>
+                                </td>
+                                <td>
+                                    <div class="product_count">
+                                        <input type="number" name="qty" class="input-text qty" data-line-item-id="<%= line_item.id %>"
+                                value="<%= line_item.quantity %>" min="1" title="Quantity:" readonly>
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5><%= line_item.total_price %></h5>
+                                    
+                                </td>
+                                 <td>
+                                    <%= link_to 'Edit', edit_line_item_path(line_item) %>
+                                </td>
+                                <td>
+                                  <%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </td>
+
+                            </tr>
+                        <% end %>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <h5>Total</h5>
+                            </td>
+                            <td>
+                                <% session[:amount] = @line_items.sum(&:total_price) %>
+                                <h5><%= @line_items.sum(&:total_price) %></h5>
+                            </td>
+                        </tr>
+                            
+                                
+                            <tr class="out_button_area">
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="/">Continue Shopping</a>
+                                        <a class="primary-btn" href="gallery/checkout">Proceed to checkout</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+
+ 
+
+
+
+
+

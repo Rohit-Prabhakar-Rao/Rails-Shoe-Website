@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
   before_action :set_store, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin, except: [:login]
+
 
   # GET /stores or /stores.json
   def index
@@ -67,4 +69,22 @@ class StoresController < ApplicationController
     def store_params
       params.require(:store).permit(:name, :color, :brand, :size, :description, :price, :store_image)
     end
+
+    def authenticate_admin
+      unless session[:admin_logged_in]
+        redirect_to '/admin/login', alert: "You are not logged in."
+      end
+    end
+    
+    def admin_logged_in?
+  
+      if session[:admin].nil?
+   
+       flash[:notice] = "You need to login as an admin to continue...."
+   
+       redirect_to admin_login_url
+   
+      end
+   
+     end
 end

@@ -1,0 +1,72 @@
+/* app/assets/stylesheets/login.css.erb */
+
+/* Container styling */
+.hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the container covers the full viewport height */
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #f7f2f2;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Background color for the container */
+  }
+  
+  /* Heading styling */
+  .hello h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Field and label styling */
+  .hello .field {
+    margin-bottom: 15px;
+  }
+  
+  .hello .field label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .hello .field input[type="email"],
+  .hello .field input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #100303;
+    border-radius: 4px;
+  }
+  
+  /* Remember me checkbox styling */
+  .hello .field .actions {
+    margin-top: 15px;
+  }
+  
+  .hello .field .actions input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .hello .field .actions input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Shared links styling (optional) */
+  .hello .shared-links {
+    margin-top: 15px;
+  }
+  
+  .hello .shared-links a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .hello .shared-links a:hover {
+    text-decoration: underline;
+  }
+  

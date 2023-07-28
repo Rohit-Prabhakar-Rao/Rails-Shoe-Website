@@ -1,0 +1,53 @@
+<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Shop page</h1>
+					<nav class="d-flex align-items-center">
+						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">Fashon Category</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+<section class="hello"> 
+<div class="single-product-slider">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-6 text-center">
+						<div class="section-title">
+							<h1>Latest Products</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore
+								magna aliqua.</p>
+						</div>
+					</div>
+				</div>
+                 
+				<div class="row">
+				<% @shoes_gallery.each do |shoe| %>
+					<div class="col-lg-3 col-md-6">
+					<div class="single-product">
+						<%= link_to view_product_detail_path(shoe), class: "product-link", method: :get do %>
+						<%= image_tag shoe.store_image, height: "300", width: "300" if shoe.store_image.attached? %><br />
+						<div class="product-details">
+							<h6><%= shoe.name %><br /></h6>
+							<div class="price">
+							<h6><%= shoe.price %><br /></h6>
+							<h6 class="l-through">15000.00</h6>
+							</div>
+							<div>
+							<p><%= shoe.description %></p>
+							</div>
+							<!-- Other links and actions for the product (if any) -->
+						</div>
+						<% end %>
+					</div>
+					</div>
+				<% end %>
+				</div>
+            </div>
+        </div>
+		</section>
